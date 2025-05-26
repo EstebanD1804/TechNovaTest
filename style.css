@@ -351,7 +351,7 @@ select {
     color: #003563;
 }
 
-/* Navegación Footer */
+/* SECCION Footer */
 .footer-nav {
     display: flex;
     gap: 2rem;
@@ -445,7 +445,9 @@ select {
   .cart-actions .btn {
     padding: 0.75rem 2rem;
   }
-  /* sección carrito */
+
+  
+  /* SECCION CARRITO */
   .cart-review {
       background-color: #cfeeff;
       padding: 4rem 1rem;
@@ -507,3 +509,45 @@ select {
   .cart-actions .btn {
       padding: 0.75rem 2rem;
   }
+
+
+  /* ==================== */
+/* PÁGINA MI CUENTA */
+/* ==================== */
+
+.mi-cuenta-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.mi-cuenta-titulo {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.mi-cuenta-info {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.mi-cuenta-boton {
+    display: inline-block;
+    background: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.mi-cuenta-boton:hover {
+    background: #c0392b;
+}

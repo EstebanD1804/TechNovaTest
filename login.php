@@ -2,6 +2,11 @@
 session_start();
 include 'conexion.php';
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+//http://localhost/technova/login.php
+
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email    = trim($_POST['email']);
@@ -16,12 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->bind_result($id, $nombre, $hash, $rolDB);
-        if ($stmt->fetch() && password_verify($password, $hash)) {
+        if ($stmt->fetch() && $password == $hash) { // if ($stmt->fetch() && password_verify($password, $hash)
             // Credenciales correctas
             $_SESSION['user_id']   = $id;
             $_SESSION['user_name'] = $nombre;
             $_SESSION['user_role'] = $rolDB;
-            header("Location: index.html");
+            header("Location: index.php");
             exit;
         } else {
             $error = "Correo o contraseña incorrectos.";
@@ -30,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -57,10 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="password">Contraseña</label>
             <input type="password" id="password" name="password" required>
 
-            <button type="submit" class="btn dark">Entrar</button>
+            <button type="submit" class="btn dark" onclick="window.location.href='index.php'">Entrar</button>
         </form>
         <p>¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
     </section>
 </body>
 
 </html>
+
+
+//VeZwIwl0Umivh
