@@ -15,7 +15,30 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="style.css"> <!-- Asegúrate de enlazar tu CSS -->
 </head>
 <body>
-    <?php include 'header.php'; ?> <!-- Si tienes un header común -->
+    <?php
+    // Determinar si el usuario está logueado
+    $isLoggedIn = isset($_SESSION['user_id']);
+    ?>
+    <header class="topbar">
+      <img src="imagenes/logo.jpg" alt="Logo TechNova" class="logo" />
+      <nav class="nav-links">
+        <a href="#">Inicio Rápido</a>
+        <a href="#">Nuestras Ofertas</a>
+        <a href="#">Soporte Técnico</a>
+        <a href="#">Contáctanos</a>
+      </nav>
+
+      <div class="user-actions">
+        <?php if ($isLoggedIn): ?>
+        <button class="btn" onclick="window.location.href='mi_cuenta.php'">Mi Cuenta</button>
+        <button class="btn dark" onclick="window.location.href='logout.php'">Cerrar Sesión</button>
+        <?php else: ?>
+        <button class="btn" onclick="window.location.href='login.php'">Login</button>
+        <button class="btn dark" onclick="window.location.href='registro.php'">Regístrate</button>
+        <?php endif; ?>
+        <a href="carrito.php" class="cart-icon">🛒</a>
+      </div>
+    </header>
 
     <main class="mi-cuenta-container">
         <h1 class="mi-cuenta-titulo">Mi Cuenta</h1>
@@ -29,6 +52,8 @@ if (!isset($_SESSION['user_id'])) {
         <a href="logout.php" class="mi-cuenta-boton">Cerrar Sesión</a>
     </main>
 
-    <?php include 'footer.php'; ?> <!-- Si tienes un footer común -->
+   <footer class="footer">
+      © 2025 TechNova | Todos los derechos reservados
+    </footer>
 </body>
 </html>

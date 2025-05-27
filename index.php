@@ -49,14 +49,14 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : 'Invitado';
         <button class="btn" onclick="window.location.href='login.php'">Login</button>
         <button class="btn dark" onclick="window.location.href='registro.php'">Regístrate</button>
         <?php endif; ?>
-        <a href="carrito.html" class="cart-icon">🛒</a>
+        <a href="carrito.php" class="cart-icon">🛒</a>
       </div>
     </header>
 
     <section class="categories">
       <select onchange="location = this.value;">
         <option value="#" selected disabled>Prooductos</option>
-        <option value="productos.html">Productos TechNova</option>
+        <option value="productos.php">Productos TechNova</option>
       </select>
 
       <select onchange="location = this.value;">

